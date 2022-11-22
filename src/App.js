@@ -14,9 +14,7 @@ const PUML_64_MAP="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxy
 
 const encode=(value)=>{
 
-  const arr = Array.prototype.map.call(value, function (char) {
-    return char.charCodeAt(0);
-  });
+  const arr =  Buffer.from(value);
   const base64MapExpr= Buffer.from(deflate.deflate(arr)).toString("base64");
   const puml = Array.prototype.map.call(base64MapExpr, function (char) {
 
@@ -38,20 +36,18 @@ function App() {
 
   const [text,setText]=useState("")
 
-
-
   return (
     <>
     <Row style={{height:"100vh"}}>
-      <Col  xs={3} md={3}>
+      <Col  xs={4} md={4}>
         <textarea 
-          cols={500} style={{height:"90vh",width:"90%",margin:"10px 10px 10px 10px ", padding:"10px 10px 10px 10px"}}
+          cols={500} style={{height:"90vh",width:"90%",margin:"10px 10px 10px 10px ", padding:"10px 10px 10px 10px",fontSize:"20px"}}
           value={text}
           onChange={(event)=>setText(event.target.value)}
         /></Col>
-      <Col  xs={9} md={9} >
+      <Col  xs={8} md={8} >
 
-      <img  style={{height:"90vh",width:"90%",margin:"10px 10px 10px 10px ", padding:"10px 10px 10px 10px"}}
+      <img  style={{height:"70vh",margin:"10px 10px 10px 10px ", padding:"10px 10px 10px 10px"}}
       alt="generated image"
       src={getURL(text)}/>
      
