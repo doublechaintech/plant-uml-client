@@ -41,7 +41,7 @@ function App() {
 
   const [text,setText]=useState(`@startuml
   |金蝶系统|
-  |#red|CMS集成模块|
+  |#lightblue|CMS集成模块|
   |**CMS后台系统**|
   
   start
@@ -70,7 +70,9 @@ function App() {
   endif
   stop
   @enduml
-    
+  
+  https://plantuml.com/zh/
+
   
   `)
 
